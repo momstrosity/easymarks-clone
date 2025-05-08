@@ -1,5 +1,13 @@
 import React, { useState, useRef } from 'react';
-import PropTypes from 'prop-types';
+
+// Prop types alternative for type checking
+const PropTypes = {
+  func: (props, propName, componentName) => {
+    if (typeof props[propName] !== 'function') {
+      return new Error(`Invalid prop ${propName} supplied to ${componentName}. Must be a function.`);
+    }
+  }
+};
 
 // Supported file types for bulk bookmark import
 const SUPPORTED_FILE_TYPES = ['.csv', '.txt', '.md', '.html'];
@@ -88,6 +96,7 @@ const FileUploadComponent = ({ onFileUpload, onError }) => {
         multiple={false}
         accept={SUPPORTED_FILE_TYPES.join(',')}
         onChange={(e) => handleFiles(e.target.files)}
+        data-testid="file-input"
       />
       <div className="flex flex-col items-center justify-center space-y-4">
         <p className="text-gray-600 font-semibold">
