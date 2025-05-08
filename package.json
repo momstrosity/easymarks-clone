@@ -8,5 +8,13 @@
 	},
 	"cacheDirectories": [
 		"frontend/node_modules"
-	]
+	],
+	"devDependencies": {
+		"@testing-library/jest-dom": "^6.6.3",
+		"@testing-library/react": "^16.3.0",
+		"jest": "^29.7.0"
+	},
+	"dependencies": {
+		"prop-types": "^15.8.1"
+	}
 }
